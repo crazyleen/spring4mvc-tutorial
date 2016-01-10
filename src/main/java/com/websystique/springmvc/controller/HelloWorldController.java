@@ -16,9 +16,17 @@ public class HelloWorldController {
 	}
 
 
+	/**
+	 * 
+	 * @param model ModelMap is a Map implementation, which saves you from old 
+	 * request.getAttribute/request.setAttribute. It provides a way 
+	 * to set/get attributes from/to request or session.
+	 * @return
+	 */
 	@RequestMapping(value="/helloagain", method = RequestMethod.GET)
 	public String sayHelloAgain(ModelMap model) {
-		model.addAttribute("greeting", "Hello World Again, from Spring 4 MVC");
+		String fuck = (String) model.get("fuck");
+		model.addAttribute("greeting", "Hello World Again, from Spring 4 MVC ## " + fuck);
 		return "welcome";
 	}
 
